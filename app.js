@@ -11,7 +11,11 @@ const port = 3000
 
 // Premier homepoint
 app.get('/', (req,res) => res.send('Hello Express babudu babidi!🏄'))
-app.get('/api/pokemons/1', (req,res) => res.send('Hello, Bulbizarre !'))
+app.get('/api/pokemons/:id', (req,res) => {
+// Express va récupérer le paramètre  et le tansmettre dans le endpoint via l'objet req
+  const id = req.params.id
+  res.send(`Vous avez demandé le pokémon n°${id}`)
+})
 // le slahs = route par défault
 // req = request
 // res = réponse
