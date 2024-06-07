@@ -3,7 +3,7 @@
 // Paramètre sequelize représente la connexion à la BDD. Propriété define permet de déclarer nouveaux modèles.
 // DataTypes : type de donnée de chaque propriété
 module.exports = (sequelize, DataTypes) => {
-  return sequelize.define('Pokemon', {
+  return sequelize.define('Pokémon', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
