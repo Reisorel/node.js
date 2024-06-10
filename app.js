@@ -44,13 +44,15 @@ sequelize.sync({ force: true })
   .then(_ => {
     console.log('La base de données "Pokédex" a bien été mise à jour')
 
-    Pokemon.create({
-      name: 'Bulbizzare',
-      hp: 25,
-      cp: 5,
-      picture: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png',
-      types: ["Plante", "Poison"].join()
-    }).then(bulbizzare => console.log(bulbizzare.toJSON()))
+    pokemons.map(pokemon => {
+      Pokemon.create({
+        name: pokemon.name,
+        hp: pokemon.hp,
+        cp: pokemon.cp,
+        picture: pokemon.picture,
+        types: pokemon.types.join()
+      }).then(bulbizzare => console.log(bulbizzare.toJSON()))
+    })
   })
 // Accès aux middleware
 app
